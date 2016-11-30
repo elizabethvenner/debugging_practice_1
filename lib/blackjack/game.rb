@@ -1,6 +1,6 @@
 require_relative "../blackjack/hand"
 require_relative "../blackjack/players"
-require_relative "../blackjack"
+require_relative "./../blackjack"
 
 class Game
   def initialize(blackjack_class=Blackjack,
@@ -22,7 +22,7 @@ class Game
   end
 
   def over?
-    blackjack.game_over
+    blackjack.game_over?
   end
 
   def winner?
