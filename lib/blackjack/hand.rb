@@ -1,6 +1,7 @@
 require_relative "./card_list"
 require_relative "./ace_card"
 require_relative "./non_ace_card"
+require_relative "./card"
 
 class Hand
   attr_reader :card_list
@@ -12,12 +13,12 @@ class Hand
 
   def hit(card_class=Card)
     raise "You're standing" if standing?
-    raise "You're bust" if standing?
+    raise "You're bust" if standing? == false
     card_list.add(card_class.random)
   end
 
   def stand
-    self.standing = true
+    @standing = true
   end
 
   def score
@@ -27,7 +28,7 @@ class Hand
   end
 
   def standing?
-    standing == true
+    @standing == true
   end
 
   def bust?
